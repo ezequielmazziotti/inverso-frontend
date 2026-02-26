@@ -937,12 +937,30 @@ function selectAsset(ticker) {
   runAnalysis();
 }
 
-function runAnalysis() {
-  const input = document.getElementById('searchInput').value.trim().toUpperCase();
-  if(!input) return;
-  currentAsset = ASSETS[input] ? input : 'GGAL';
+const API_BASE_URL = "https://inverso.onrender.com";
+
+async function runAnalysis() {
+  const ticker = document.getElementById('searchInput').value.trim().toUpperCase();
+  if(!ticker) return;
+
   showPage('loading');
-  startLoadingSequence();
+  
+  try {
+    // Llamada real a tu servidor de Python
+    const response = await fetch(`${API_BASE_URL}/analyze/${ticker}`);
+    
+    if (!response.ok) throw new Error('Error en el servidor');
+    
+    const data = await response.json();
+    
+    // Aquí le pasamos los datos que trajo Python a la pantalla
+    populateAnalysis(data); 
+    showPage('analysis');
+  } catch (error) {
+    console.error("Error:", error);
+    showPage('dashboard');
+    showToast('No se pudo conectar con el motor de IA', 'error');
+  }
 }
 
 function startLoadingSequence() {
@@ -964,18 +982,27 @@ function startLoadingSequence() {
   }, 600);
 }
 
-function populateAnalysis(ticker) {
-  const asset = ASSETS[ticker] || ASSETS['GGAL'];
-  document.getElementById('an-ticker').textContent = ticker;
-  document.getElementById('an-ticker-col').textContent = ticker;
-  document.getElementById('an-name').textContent = asset.name;
-  document.getElementById('an-price').textContent = asset.price;
-  document.getElementById('an-change').textContent = (asset.up ? '↑ +' : '↓ ') + asset.change + ' hoy';
-  document.getElementById('an-change').className = 'ah-change ' + (asset.up ? 'up' : 'down');
-  document.getElementById('an-score').textContent = asset.score;
-  const pct = asset.score / 10;
+function populateAnalysis(data) {
+  // 1. Nombre y Ticker real
+  document.getElementById('an-ticker').textContent = data.ticker || 'N/A';
+  document.getElementById('an-ticker-col').textContent = data.ticker || 'N/A';
+  document.getElementById('an-name').textContent = data.company_name || 'Activo analizado';
+  
+  // 2. Precio y Variación del mercado (yfinance)
+  document.getElementById('an-price').textContent = `$${data.current_price.toLocaleString()}`;
+  const changeText = (data.change_percent >= 0 ? '↑ +' : '↓ ') + Math.abs(data.change_percent).toFixed(2) + '% hoy';
+  document.getElementById('an-change').textContent = changeText;
+  document.getElementById('an-change').className = 'ah-change ' + (data.change_percent >= 0 ? 'up' : 'down');
+
+  // 3. Score de Oportunidad (IA)
+  const score = data.score || 0;
+  document.getElementById('an-score').textContent = score;
+  const pct = score / 10;
   const circ = 326.7;
   document.getElementById('scoreCircle').style.strokeDashoffset = circ * (1 - pct);
+  
+  // 4. Resumen y Síntesis (OpenAI)
+  document.getElementById('an-summary').textContent = data.summary || 'Sin análisis disponible.';
 }
 
 // DEEP ANALYSIS
