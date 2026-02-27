@@ -11,23 +11,15 @@
 :root{
   --bg:#0b0e13;--surface:#13171f;--surface2:#1a1f2b;--border:#1e2530;
   --accent:#c9a96e;--accent-dim:rgba(201,169,110,0.12);--accent-border:rgba(201,169,110,0.25);
-  --text:#e8e4dc;--muted:#7a8394;--green:#4caf82;--red:#e05a5a;--yellow:#c9a96e;
-  --white:#ffffff;
+  --text:#e8e4dc;--muted:#7a8394;--green:#4caf82;--red:#e05a5a;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
-
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-
-/* LAYOUT */
-.app{display:flex;min-height:100vh}
 .sidebar{width:220px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:50;transition:transform 0.3s}
 .main{margin-left:220px;flex:1;min-height:100vh}
-
-/* SIDEBAR */
 .sidebar-logo{padding:1.75rem 1.5rem 1.25rem;border-bottom:1px solid var(--border)}
 .logo-text{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--accent)}
 .logo-text span{color:var(--text)}
@@ -42,18 +34,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .plan-badge{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:6px;padding:0.5rem 0.75rem;text-align:center}
 .plan-badge .plan-name{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)}
 .plan-badge .plan-analyses{font-size:0.75rem;color:var(--muted);margin-top:0.1rem}
-
-/* TOPBAR */
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
 .topbar-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600}
-.topbar-right{display:flex;align-items:center;gap:1rem}
 .avatar{width:32px;height:32px;border-radius:50%;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--accent);cursor:pointer}
-
-/* PAGES */
 .page{display:none;padding:2rem}
 .page.active{display:block}
-
-/* SCREEN: DASHBOARD */
 .search-hero{text-align:center;padding:3rem 1rem 2rem}
 .search-hero h1{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:0.5rem}
 .search-hero p{color:var(--muted);font-size:0.9rem;margin-bottom:2rem}
@@ -66,17 +51,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .search-suggestions.open{display:block}
 .suggestion-item{padding:0.75rem 1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background 0.15s}
 .suggestion-item:hover{background:rgba(255,255,255,0.04)}
-.sug-left{display:flex;flex-direction:column}
 .sug-ticker{font-size:0.9rem;font-weight:500;color:var(--text)}
 .sug-name{font-size:0.75rem;color:var(--muted)}
-.sug-right{font-size:0.8rem;color:var(--green)}
-.sug-right.neg{color:var(--red)}
-
 .quick-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin:1.5rem 0 0.75rem}
 .quick-chips{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;max-width:560px;margin:0 auto}
 .chip{padding:0.4rem 0.9rem;background:var(--surface);border:1px solid var(--border);border-radius:100px;font-size:0.8rem;cursor:pointer;color:var(--muted);transition:all 0.2s}
 .chip:hover{border-color:var(--accent-border);color:var(--accent)}
-
 .market-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem}
 .market-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
 .mc-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
@@ -84,21 +64,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .mc-change{font-size:0.8rem;margin-top:0.2rem}
 .mc-change.up{color:var(--green)}
 .mc-change.down{color:var(--red)}
-
-/* SCREEN: ANALYSIS */
 .analysis-header{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.ah-left{display:flex;flex-direction:column;gap:0.25rem}
 .ah-ticker{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700}
 .ah-name{font-size:0.85rem;color:var(--muted)}
-.ah-right{text-align:right}
 .ah-price{font-family:'Playfair Display',serif;font-size:1.8rem}
 .ah-change{font-size:0.9rem}
 .ah-change.up{color:var(--green)}
 .ah-change.down{color:var(--red)}
-
 .analysis-grid{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;margin-bottom:1.5rem}
 @media(max-width:700px){.analysis-grid{grid-template-columns:1fr}}
-
 .score-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem}
 .score-ring{position:relative;width:120px;height:120px}
 .score-ring svg{transform:rotate(-90deg)}
@@ -108,7 +82,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .score-den{font-size:0.7rem;color:var(--muted)}
 .score-label-text{font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
 .score-desc{font-size:0.85rem;color:var(--muted);line-height:1.6}
-
 .factors-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
 .factors-title{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
 .factor-item{display:flex;align-items:flex-start;gap:0.75rem;padding:0.85rem 0;border-bottom:1px solid var(--border)}
@@ -117,10 +90,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .factor-dot.pos{background:var(--green)}
 .factor-dot.neg{background:var(--red)}
 .factor-dot.neu{background:var(--accent)}
-.factor-body{}
 .factor-name{font-size:0.82rem;font-weight:500;margin-bottom:0.2rem}
 .factor-desc{font-size:0.78rem;color:var(--muted);line-height:1.5}
-
 .mep-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
 .card-title{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
 .mep-table{width:100%;border-collapse:collapse}
@@ -129,21 +100,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .mep-table td:first-child{color:var(--muted);font-size:0.8rem}
 .pos-val{color:var(--green)}
 .neg-val{color:var(--red)}
-
 .summary-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:1.5rem;margin-bottom:1.5rem}
-
 .btn{padding:0.7rem 1.5rem;border-radius:8px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;transition:all 0.2s}
 .btn-accent{background:var(--accent);color:#0b0e13}
 .btn-accent:hover{background:#d9bc87}
 .btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted)}
 .btn-outline:hover{border-color:var(--accent-border);color:var(--accent)}
-.btn-locked{background:var(--surface2);border:1px solid var(--border);color:var(--muted)}
 .btn-row{display:flex;gap:0.75rem;flex-wrap:wrap}
-
-/* DEEP ANALYSIS */
 .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
 .chart-wrapper{height:240px;margin-top:1rem}
-
 .projections-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
 @media(max-width:600px){.projections-grid{grid-template-columns:1fr}}
 .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
@@ -151,10 +116,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .proj-scenario{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid var(--border);font-size:0.82rem}
 .proj-scenario:last-child{border-bottom:none}
 .proj-scenario-label{color:var(--muted)}
-.proj-scenario-val.up{color:var(--green)}
-.proj-scenario-val.down{color:var(--red)}
-.proj-scenario-val.neu{color:var(--accent)}
-
+.proj-val-up{color:var(--green)}
+.proj-val-down{color:var(--red)}
+.proj-val-neu{color:var(--accent)}
 .peers-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
 .peer-item{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0;border-bottom:1px solid var(--border);font-size:0.875rem}
 .peer-item:last-child{border-bottom:none}
@@ -162,16 +126,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .peer-name{font-size:0.75rem;color:var(--muted)}
 .peer-perf.up{color:var(--green)}
 .peer-perf.down{color:var(--red)}
-
 .news-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
 .news-item{padding:0.85rem 0;border-bottom:1px solid var(--border)}
 .news-item:last-child{border-bottom:none}
 .news-source{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.25rem}
 .news-title{font-size:0.875rem;font-weight:500;margin-bottom:0.25rem}
 .news-summary{font-size:0.78rem;color:var(--muted);line-height:1.5}
-.news-date{font-size:0.7rem;color:var(--muted);margin-top:0.25rem}
-
-/* SIMULATOR */
 .sim-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
 .sim-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
 .form-group{display:flex;flex-direction:column;gap:0.4rem;flex:1;min-width:160px}
@@ -179,7 +139,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .form-input{padding:0.65rem 0.9rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
 .form-input:focus{border-color:var(--accent-border)}
 .form-select{padding:0.65rem 0.9rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;cursor:pointer}
-
 .allocation-list{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1rem}
 .allocation-item{display:flex;align-items:center;gap:1rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1rem}
 .alloc-ticker{font-weight:500;font-size:0.9rem;width:60px}
@@ -187,7 +146,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .alloc-pct{width:40px;text-align:right;font-size:0.85rem;color:var(--accent)}
 .alloc-remove{color:var(--muted);cursor:pointer;font-size:1.1rem;transition:color 0.2s}
 .alloc-remove:hover{color:var(--red)}
-
 .sim-results{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:1.5rem}
 .sim-result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:1.5rem}
 .sim-result-item{text-align:center}
@@ -195,29 +153,19 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .sri-value{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600}
 .sri-value.up{color:var(--green)}
 .sri-value.down{color:var(--red)}
-
-/* DYNAMIC SIM */
 .ops-table{width:100%;border-collapse:collapse;margin-bottom:1rem}
 .ops-table th{font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid var(--border)}
 .ops-table td{padding:0.6rem 0.75rem;font-size:0.85rem;border-bottom:1px solid rgba(30,37,48,0.5)}
 .ops-table td select,.ops-table td input{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.35rem 0.5rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.82rem;outline:none;width:100%}
 .ops-table .remove-op{color:var(--muted);cursor:pointer;font-size:1rem}
 .ops-table .remove-op:hover{color:var(--red)}
-
-/* HISTORIAL */
 .history-list{display:flex;flex-direction:column;gap:0.75rem}
 .history-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:border-color 0.2s}
 .history-item:hover{border-color:var(--accent-border)}
-.hi-left{display:flex;align-items:center;gap:1rem}
 .hi-ticker{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600}
-.hi-meta{display:flex;flex-direction:column;gap:0.1rem}
 .hi-name{font-size:0.8rem;color:var(--muted)}
 .hi-date{font-size:0.72rem;color:var(--muted)}
-.hi-right{display:flex;align-items:center;gap:1rem}
 .hi-score{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:6px;padding:0.3rem 0.6rem;font-size:0.8rem;color:var(--accent)}
-.hi-alert{background:rgba(224,90,90,0.1);border:1px solid rgba(224,90,90,0.25);border-radius:6px;padding:0.3rem 0.6rem;font-size:0.75rem;color:var(--red)}
-
-/* LOADING */
 .loading-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:1.5rem}
 .loading-spinner{width:48px;height:48px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -225,8 +173,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .loading-step{font-size:0.85rem;color:var(--muted);opacity:0;transition:opacity 0.4s}
 .loading-step.visible{opacity:1}
 .loading-step.done{color:var(--green)}
-
-/* MODAL */
+.waking-msg{font-size:0.8rem;color:var(--accent);opacity:0;transition:opacity 0.5s;margin-top:0.25rem}
+.waking-msg.visible{opacity:1}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem}
 .modal-overlay.open{display:flex}
 .modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;max-width:600px;width:100%;max-height:90vh;overflow-y:auto}
@@ -234,7 +182,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .modal-sub{font-size:0.875rem;color:var(--muted);margin-bottom:1.75rem}
 .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.5rem}
 @media(max-width:500px){.plans-grid{grid-template-columns:1fr}}
-.plan-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;transition:border-color 0.2s}
+.plan-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center}
 .plan-card.featured{border-color:var(--accent)}
 .plan-card-name{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem}
 .plan-card-price{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:0.1rem}
@@ -244,27 +192,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .pcf::before{content:'✓';color:var(--green);flex-shrink:0}
 .pcf.locked::before{content:'✗';color:var(--border)}
 .pcf.locked{opacity:0.5}
-
-/* TABS */
-.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
 .tab{padding:0.65rem 1.25rem;font-size:0.85rem;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s}
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
-
-/* UTILS */
 .section-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
 .page-header{margin-bottom:1.75rem}
 .page-header h1{font-family:'Playfair Display',serif;font-size:1.6rem}
 .page-header p{color:var(--muted);font-size:0.875rem;margin-top:0.25rem}
-.empty-state{text-align:center;padding:4rem 2rem;color:var(--muted)}
-.empty-state .empty-icon{font-size:3rem;margin-bottom:1rem;opacity:0.4}
-.empty-state p{font-size:0.9rem}
-
-/* NOTIFICATIONS */
 .toast{position:fixed;bottom:2rem;right:2rem;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1.25rem;font-size:0.875rem;z-index:300;transform:translateY(100px);opacity:0;transition:all 0.3s}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{border-color:rgba(76,175,130,0.4);color:var(--green)}
-
+.toast.error{border-color:rgba(224,90,90,0.4);color:var(--red)}
 @media(max-width:768px){
   .sidebar{transform:translateX(-100%)}
   .sidebar.open{transform:translateX(0)}
@@ -277,7 +216,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <div class="logo-text">Inver<span>so</span></div>
@@ -285,21 +223,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   </div>
   <nav class="sidebar-nav">
     <div class="nav-section-label">Principal</div>
-    <a class="nav-item active" onclick="showPage('dashboard')" id="nav-dashboard">
-      <span class="nav-icon">⬛</span> Dashboard
-    </a>
-    <a class="nav-item" onclick="showPage('historial')" id="nav-historial">
-      <span class="nav-icon">🕐</span> Historial
-    </a>
+    <a class="nav-item active" onclick="showPage('dashboard')" id="nav-dashboard"><span class="nav-icon">⬛</span> Dashboard</a>
+    <a class="nav-item" onclick="showPage('historial')" id="nav-historial"><span class="nav-icon">🕐</span> Historial</a>
     <div class="nav-section-label" style="margin-top:0.75rem">Herramientas</div>
     <a class="nav-item" onclick="showPage('simulador')" id="nav-simulador">
       <span class="nav-icon">📊</span> Simulador
       <span style="margin-left:auto;font-size:0.6rem;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);padding:0.1rem 0.4rem;border-radius:4px">PRO</span>
     </a>
     <div class="nav-section-label" style="margin-top:0.75rem">Cuenta</div>
-    <a class="nav-item" onclick="showUpgradeModal()">
-      <span class="nav-icon">⚡</span> Actualizar plan
-    </a>
+    <a class="nav-item" onclick="showUpgradeModal()"><span class="nav-icon">⚡</span> Actualizar plan</a>
   </nav>
   <div class="sidebar-bottom">
     <div class="plan-badge">
@@ -309,21 +241,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   </div>
 </aside>
 
-<!-- MAIN -->
 <div class="main">
-
-  <!-- TOPBAR -->
   <header class="topbar">
     <div style="display:flex;align-items:center;gap:1rem">
       <button onclick="toggleSidebar()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.2rem;display:none" id="menu-btn">☰</button>
       <span class="topbar-title" id="topbar-title">Dashboard</span>
     </div>
-    <div class="topbar-right">
+    <div style="display:flex;align-items:center;gap:1rem">
       <div class="avatar">EZ</div>
     </div>
   </header>
 
-  <!-- PAGE: DASHBOARD -->
   <div class="page active" id="page-dashboard">
     <div class="search-hero">
       <p class="section-label">Mercado argentino</p>
@@ -331,7 +259,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <p>Ingresá un ticker o nombre de activo y obtené un análisis completo con IA</p>
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input class="search-input" id="searchInput" placeholder="Ej: GGAL, AL30, YPF, dólar MEP..." autocomplete="off" oninput="handleSearch(this.value)" onkeydown="if(event.key==='Enter')runAnalysis()"/>
+        <input class="search-input" id="searchInput" placeholder="Ej: GGAL, AL30, YPF..." autocomplete="off"
+          oninput="handleSearch(this.value)"
+          onkeydown="if(event.key==='Enter')runAnalysis()"/>
         <div class="search-suggestions" id="suggestions"></div>
       </div>
       <div class="quick-label">Más consultados hoy</div>
@@ -342,68 +272,46 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="chip" onclick="selectAsset('GD30')">GD30</div>
         <div class="chip" onclick="selectAsset('PAMP')">PAMP</div>
         <div class="chip" onclick="selectAsset('MEP')">Dólar MEP</div>
-        <div class="chip" onclick="selectAsset('MELI')">MELI CEDEAR</div>
+        <div class="chip" onclick="selectAsset('MELI')">MELI</div>
       </div>
     </div>
-
     <div class="market-grid">
-      <div class="market-card">
-        <div class="mc-label">Merval</div>
-        <div class="mc-value">2.184.320</div>
-        <div class="mc-change up">↑ +2.4% hoy</div>
-      </div>
-      <div class="market-card">
-        <div class="mc-label">Dólar MEP</div>
-        <div class="mc-value">$1.247</div>
-        <div class="mc-change up">↑ +0.3% hoy</div>
-      </div>
-      <div class="market-card">
-        <div class="mc-label">Riesgo País</div>
-        <div class="mc-value">612</div>
-        <div class="mc-change down">↓ -18 puntos</div>
-      </div>
-      <div class="market-card">
-        <div class="mc-label">Inflación mensual</div>
-        <div class="mc-value">2.4%</div>
-        <div class="mc-change up">Mínimo desde 2021</div>
-      </div>
+      <div class="market-card"><div class="mc-label">Dólar MEP</div><div class="mc-value" id="mk-mep">—</div><div class="mc-change" id="mk-mep-ch">Cargando...</div></div>
+      <div class="market-card"><div class="mc-label">Riesgo País</div><div class="mc-value" id="mk-riesgo">—</div><div class="mc-change up" id="mk-riesgo-ch">Puntos EMBI+</div></div>
+      <div class="market-card"><div class="mc-label">Inflación mensual</div><div class="mc-value" id="mk-inflacion">—</div><div class="mc-change up">Dato BCRA</div></div>
+      <div class="market-card"><div class="mc-label">Dólar Oficial</div><div class="mc-value" id="mk-oficial">—</div><div class="mc-change up">BCRA</div></div>
     </div>
   </div>
 
-  <!-- PAGE: LOADING -->
   <div class="page" id="page-loading">
     <div class="loading-screen">
       <div class="loading-spinner"></div>
       <div class="loading-steps">
-        <div class="loading-step" id="ls1">Obteniendo datos históricos del activo...</div>
-        <div class="loading-step" id="ls2">Analizando contexto macroeconómico...</div>
-        <div class="loading-step" id="ls3">Consultando tipo de cambio y riesgo país...</div>
-        <div class="loading-step" id="ls4">Procesando análisis con IA...</div>
+        <div class="loading-step" id="ls1">Conectando con el servidor...</div>
+        <div class="loading-step" id="ls2">Obteniendo datos históricos del activo...</div>
+        <div class="loading-step" id="ls3">Analizando contexto macroeconómico...</div>
+        <div class="loading-step" id="ls4">Procesando con IA...</div>
         <div class="loading-step" id="ls5">Generando reporte...</div>
       </div>
+      <div class="waking-msg" id="waking-msg">⏳ El servidor está despertando, esto puede tardar hasta 30 segundos la primera vez...</div>
     </div>
   </div>
 
-  <!-- PAGE: ANÁLISIS BÁSICO -->
   <div class="page" id="page-analysis">
-    <div class="page-header">
-      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem">
-        <button class="btn btn-outline" style="padding:0.4rem 0.85rem;font-size:0.8rem" onclick="showPage('dashboard')">← Volver</button>
-        <span class="section-label" style="margin:0">Análisis básico</span>
-      </div>
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem">
+      <button class="btn btn-outline" style="padding:0.4rem 0.85rem;font-size:0.8rem" onclick="showPage('dashboard')">← Volver</button>
+      <span class="section-label" style="margin:0">Análisis básico</span>
     </div>
-
     <div class="analysis-header">
-      <div class="ah-left">
-        <div class="ah-ticker" id="an-ticker">GGAL</div>
-        <div class="ah-name" id="an-name">Grupo Financiero Galicia · Merval</div>
+      <div>
+        <div class="ah-ticker" id="an-ticker">—</div>
+        <div class="ah-name" id="an-name">—</div>
       </div>
-      <div class="ah-right">
-        <div class="ah-price" id="an-price">$6.842</div>
-        <div class="ah-change up" id="an-change">↑ +4.2% hoy</div>
+      <div style="text-align:right">
+        <div class="ah-price" id="an-price">—</div>
+        <div class="ah-change" id="an-change">—</div>
       </div>
     </div>
-
     <div class="analysis-grid">
       <div class="score-card">
         <p class="score-label-text">Score de oportunidad</p>
@@ -411,199 +319,73 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
           <svg width="120" height="120" viewBox="0 0 120 120">
             <circle cx="60" cy="60" r="52" fill="none" stroke="#1e2530" stroke-width="8"/>
             <circle id="scoreCircle" cx="60" cy="60" r="52" fill="none" stroke="#c9a96e" stroke-width="8"
-              stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="98"/>
+              stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
           </svg>
           <div class="score-center">
-            <div class="score-num" id="an-score">7.2</div>
+            <div class="score-num" id="an-score">—</div>
             <div class="score-den">/10</div>
           </div>
         </div>
-        <p class="score-desc" id="an-score-desc">Perfil moderado-favorable. Fundamentos sólidos en contexto de normalización macroeconómica.</p>
+        <p class="score-desc" id="an-score-desc">—</p>
       </div>
-
       <div class="factors-card">
         <div class="factors-title">Factores clave</div>
-        <div id="factors-list">
-          <div class="factor-item">
-            <div class="factor-dot pos"></div>
-            <div class="factor-body">
-              <div class="factor-name">Contexto macro favorable</div>
-              <div class="factor-desc">Estabilización cambiaria y baja del riesgo país favorecen al sector financiero en el corto plazo.</div>
-            </div>
-          </div>
-          <div class="factor-item">
-            <div class="factor-dot pos"></div>
-            <div class="factor-body">
-              <div class="factor-name">Tendencia histórica alcista</div>
-              <div class="factor-desc">Recuperación sostenida desde mínimos de 2022 con soportes bien definidos.</div>
-            </div>
-          </div>
-          <div class="factor-item">
-            <div class="factor-dot neg"></div>
-            <div class="factor-body">
-              <div class="factor-name">Riesgo político 2025</div>
-              <div class="factor-desc">Elecciones legislativas pueden generar volatilidad. Exposición a deuda soberana a monitorear.</div>
-            </div>
-          </div>
-          <div class="factor-item">
-            <div class="factor-dot neu"></div>
-            <div class="factor-body">
-              <div class="factor-name">Tipo de cambio estable</div>
-              <div class="factor-desc">Brecha cambiaria en niveles bajos. Dólar MEP estable reduce presión sobre activos dolarizados.</div>
-            </div>
-          </div>
-          <div class="factor-item">
-            <div class="factor-dot pos"></div>
-            <div class="factor-body">
-              <div class="factor-name">Liquidez del activo</div>
-              <div class="factor-desc">Alta liquidez en el Merval. Spread bid-ask reducido facilita entrada y salida de posiciones.</div>
-            </div>
-          </div>
-        </div>
+        <div id="factors-list"><p style="color:var(--muted);font-size:0.85rem">Cargando factores...</p></div>
       </div>
     </div>
-
     <div class="mep-card">
       <div class="card-title">Comparación con Dólar MEP</div>
       <table class="mep-table">
-        <thead>
-          <tr>
-            <th>Período</th>
-            <th id="an-ticker-col">GGAL</th>
-            <th>Dólar MEP</th>
-            <th>Diferencia</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>30 días</td>
-            <td class="pos-val">+18.4%</td>
-            <td>+1.2%</td>
-            <td class="pos-val">+17.2%</td>
-          </tr>
-          <tr>
-            <td>90 días</td>
-            <td class="pos-val">+41.2%</td>
-            <td>+3.8%</td>
-            <td class="pos-val">+37.4%</td>
-          </tr>
-          <tr>
-            <td>365 días</td>
-            <td class="pos-val">+182.6%</td>
-            <td>+14.1%</td>
-            <td class="pos-val">+168.5%</td>
-          </tr>
-        </tbody>
+        <thead><tr><th>Período</th><th id="an-ticker-col">Activo</th><th>Dólar MEP</th><th>Diferencia</th></tr></thead>
+        <tbody id="mep-tbody"><tr><td colspan="4" style="text-align:center;color:var(--muted);padding:1rem">Cargando...</td></tr></tbody>
       </table>
     </div>
-
     <div class="summary-card">
       <div class="card-title" style="margin-bottom:0.75rem">Síntesis</div>
-      <p id="an-summary" style="font-size:0.9rem;color:var(--muted);line-height:1.7">
-        GGAL opera en un entorno más favorable que en los últimos dos años, impulsado por la desinflación gradual y la reapertura del crédito privado. La acción ha mostrado una recuperación consistente y los fundamentos del sector bancario argentino siguen mejorando. Sin embargo, el riesgo electoral de 2025 y la sensibilidad a los bonos soberanos requieren monitoreo activo. Para perfiles moderados, representa una posición de acumulación gradual con stops definidos. <strong style="color:var(--text)">Horizonte sugerido: 6-12 meses.</strong>
-      </p>
+      <p id="an-summary" style="font-size:0.9rem;color:var(--muted);line-height:1.7">—</p>
     </div>
-
     <div class="btn-row">
-      <button class="btn btn-accent" onclick="showDeepAnalysis()">Ver análisis profundo ⚡</button>
+      <button class="btn btn-accent" onclick="runDeepAnalysis()">Ver análisis profundo ⚡</button>
       <button class="btn btn-outline" onclick="saveToHistory()">Guardar en historial</button>
       <button class="btn btn-outline" onclick="showPage('dashboard')">Nuevo análisis</button>
     </div>
   </div>
 
-  <!-- PAGE: ANÁLISIS PROFUNDO -->
   <div class="page" id="page-deep">
-    <div class="page-header">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
-        <div style="display:flex;align-items:center;gap:0.75rem">
-          <button class="btn btn-outline" style="padding:0.4rem 0.85rem;font-size:0.8rem" onclick="showPage('analysis')">← Básico</button>
-          <span class="section-label" style="margin:0">Análisis profundo</span>
-        </div>
-        <button class="btn btn-accent" onclick="exportPDF()">Exportar PDF ↓</button>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.25rem">
+      <div style="display:flex;align-items:center;gap:0.75rem">
+        <button class="btn btn-outline" style="padding:0.4rem 0.85rem;font-size:0.8rem" onclick="showPage('analysis')">← Básico</button>
+        <span class="section-label" style="margin:0">Análisis profundo</span>
       </div>
+      <button class="btn btn-accent" onclick="exportPDF()">Exportar PDF ↓</button>
     </div>
-
     <div class="analysis-header">
-      <div class="ah-left">
-        <div class="ah-ticker">GGAL</div>
-        <div class="ah-name">Grupo Financiero Galicia · Merval</div>
+      <div>
+        <div class="ah-ticker" id="deep-ticker">—</div>
+        <div class="ah-name" id="deep-name">—</div>
       </div>
-      <div class="ah-right">
-        <div class="ah-price">$6.842</div>
-        <div class="ah-change up">↑ +4.2% hoy</div>
+      <div style="text-align:right">
+        <div class="ah-price" id="deep-price">—</div>
+        <div class="ah-change" id="deep-change">—</div>
       </div>
     </div>
-
     <div class="chart-card">
       <div class="card-title">Evolución histórica — últimos 12 meses</div>
-      <div class="chart-wrapper">
-        <canvas id="priceChart"></canvas>
-      </div>
+      <div class="chart-wrapper"><canvas id="priceChart"></canvas></div>
     </div>
-
-    <div class="projections-grid">
-      <div class="proj-card">
-        <div class="proj-horizon">3 meses</div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Optimista</span><span class="proj-scenario-val up">+35%</span></div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Neutro</span><span class="proj-scenario-val neu">+12%</span></div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Pesimista</span><span class="proj-scenario-val down">-8%</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-horizon">6 meses</div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Optimista</span><span class="proj-scenario-val up">+68%</span></div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Neutro</span><span class="proj-scenario-val neu">+28%</span></div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Pesimista</span><span class="proj-scenario-val down">-15%</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-horizon">12 meses</div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Optimista</span><span class="proj-scenario-val up">+140%</span></div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Neutro</span><span class="proj-scenario-val neu">+55%</span></div>
-        <div class="proj-scenario"><span class="proj-scenario-label">Pesimista</span><span class="proj-scenario-val down">-22%</span></div>
-      </div>
-    </div>
-
+    <div class="projections-grid" id="projections-grid"></div>
     <div class="peers-card">
-      <div class="card-title">Comparación con activos similares (últimos 90 días)</div>
-      <div class="peer-item">
-        <div><div class="peer-ticker">GGAL</div><div class="peer-name">Galicia · Actual</div></div>
-        <div class="peer-perf up">+41.2%</div>
-      </div>
-      <div class="peer-item">
-        <div><div class="peer-ticker">BMA</div><div class="peer-name">Banco Macro</div></div>
-        <div class="peer-perf up">+38.7%</div>
-      </div>
-      <div class="peer-item">
-        <div><div class="peer-ticker">SUPV</div><div class="peer-name">Supervielle</div></div>
-        <div class="peer-perf up">+22.1%</div>
-      </div>
+      <div class="card-title">Comparación con activos similares (90 días)</div>
+      <div id="peers-list"></div>
     </div>
-
-    <div class="news-card">
-      <div class="card-title">Noticias recientes vinculadas al activo</div>
-      <div class="news-item">
-        <div class="news-source">El Cronista · Hace 4 horas</div>
-        <div class="news-title">Galicia lanza nueva línea de créditos hipotecarios UVA con tasas competitivas</div>
-        <div class="news-summary">Impacto positivo: amplía cartera de crédito en contexto de recuperación del mercado inmobiliario. Podría impulsar ingresos netos en Q2.</div>
-      </div>
-      <div class="news-item">
-        <div class="news-source">Ámbito Financiero · Hace 1 día</div>
-        <div class="news-title">Riesgo país rompe mínimos desde 2019: qué significa para los bancos</div>
-        <div class="news-summary">Impacto positivo: la caída del riesgo país reduce el costo de fondeo y mejora el valor de los activos soberanos en cartera de los bancos.</div>
-      </div>
-      <div class="news-item">
-        <div class="news-source">Infobae · Hace 2 días</div>
-        <div class="news-title">FMI aprueba nueva revisión del programa argentino: desembolso de USD 800 millones</div>
-        <div class="news-summary">Impacto neutro-positivo: refuerza la estabilidad macro general pero el efecto directo sobre Galicia es indirecto vía mejora del contexto sistémico.</div>
-      </div>
+    <div class="peers-card">
+      <div class="card-title">Noticias recientes</div>
+      <div id="news-list"></div>
     </div>
-
     <div class="summary-card">
-      <div class="card-title" style="margin-bottom:0.75rem">Síntesis profunda</div>
-      <p style="font-size:0.9rem;color:var(--muted);line-height:1.7">
-        GGAL mantiene su posición de liderazgo en el sector bancario argentino con catalizadores claros para los próximos 12 meses: expansión del crédito hipotecario, mejora del contexto macro y reducción del riesgo sistémico. La proyección neutro-optimista apunta a retornos superiores al 50% en el horizonte anual, con el principal riesgo siendo la volatilidad pre-electoral y la exposición indirecta a bonos soberanos. Para inversores con tolerancia al riesgo moderada-alta, GGAL representa una de las mejores exposiciones al rebote argentino con liquidez diaria.
-      </p>
+      <div class="card-title" style="margin-bottom:0.75rem">Síntesis técnica</div>
+      <p id="deep-technical" style="font-size:0.9rem;color:var(--muted);line-height:1.7">—</p>
     </div>
-
     <div class="btn-row">
       <button class="btn btn-accent" onclick="exportPDF()">Exportar PDF</button>
       <button class="btn btn-outline" onclick="saveToHistory()">Guardar en historial</button>
@@ -611,170 +393,65 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 
-  <!-- PAGE: SIMULADOR -->
   <div class="page" id="page-simulador">
     <div class="page-header">
       <p class="section-label">Herramientas Pro</p>
       <h1>Simulador de cartera</h1>
-      <p>Simulá carteras de inversión con datos históricos reales del mercado argentino</p>
+      <p>Simulá carteras con datos históricos reales del mercado argentino</p>
     </div>
-
     <div class="tabs">
       <div class="tab active" onclick="switchSimTab('fixed',this)">Cartera fija</div>
       <div class="tab" onclick="switchSimTab('dynamic',this)">Cartera dinámica</div>
     </div>
-
-    <!-- CARTERA FIJA -->
     <div id="sim-fixed">
       <div class="sim-section">
         <div class="section-label">Configuración</div>
         <div class="sim-row">
-          <div class="form-group">
-            <label class="form-label">Monto inicial</label>
-            <input class="form-input" type="number" id="sim-amount" value="100000" placeholder="Ej: 100000"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Moneda</label>
-            <select class="form-select" id="sim-currency">
-              <option value="ars">Pesos argentinos (ARS)</option>
-              <option value="usd">Dólares (USD)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Fecha de inicio</label>
-            <input class="form-input" type="date" id="sim-date" value="2024-01-01"/>
-          </div>
+          <div class="form-group"><label class="form-label">Monto inicial</label><input class="form-input" type="number" id="sim-amount" value="100000"/></div>
+          <div class="form-group"><label class="form-label">Moneda</label><select class="form-select" id="sim-currency"><option value="ars">Pesos (ARS)</option><option value="usd">Dólares (USD)</option></select></div>
+          <div class="form-group"><label class="form-label">Fecha de inicio</label><input class="form-input" type="date" id="sim-date" value="2024-01-01"/></div>
         </div>
-
-        <div class="section-label" style="margin-top:1rem">Composición de la cartera</div>
+        <div class="section-label" style="margin-top:1rem">Composición</div>
         <div class="allocation-list" id="allocation-list">
-          <div class="allocation-item">
-            <span class="alloc-ticker">GGAL</span>
-            <input type="range" class="alloc-slider" min="0" max="100" value="40" oninput="updateAlloc(this)"/>
-            <span class="alloc-pct">40%</span>
-            <span class="alloc-remove" onclick="removeAlloc(this)">✕</span>
-          </div>
-          <div class="allocation-item">
-            <span class="alloc-ticker">AL30</span>
-            <input type="range" class="alloc-slider" min="0" max="100" value="35" oninput="updateAlloc(this)"/>
-            <span class="alloc-pct">35%</span>
-            <span class="alloc-remove" onclick="removeAlloc(this)">✕</span>
-          </div>
-          <div class="allocation-item">
-            <span class="alloc-ticker">MEP</span>
-            <input type="range" class="alloc-slider" min="0" max="100" value="25" oninput="updateAlloc(this)"/>
-            <span class="alloc-pct">25%</span>
-            <span class="alloc-remove" onclick="removeAlloc(this)">✕</span>
-          </div>
+          <div class="allocation-item"><span class="alloc-ticker">GGAL</span><input type="range" class="alloc-slider" min="0" max="100" value="40" oninput="updateAlloc(this)"/><span class="alloc-pct">40%</span><span class="alloc-remove" onclick="removeAlloc(this)">✕</span></div>
+          <div class="allocation-item"><span class="alloc-ticker">AL30</span><input type="range" class="alloc-slider" min="0" max="100" value="35" oninput="updateAlloc(this)"/><span class="alloc-pct">35%</span><span class="alloc-remove" onclick="removeAlloc(this)">✕</span></div>
+          <div class="allocation-item"><span class="alloc-ticker">MEP</span><input type="range" class="alloc-slider" min="0" max="100" value="25" oninput="updateAlloc(this)"/><span class="alloc-pct">25%</span><span class="alloc-remove" onclick="removeAlloc(this)">✕</span></div>
         </div>
         <div style="display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap">
           <button class="btn btn-outline" style="font-size:0.8rem" onclick="addAsset()">+ Agregar activo</button>
-          <button class="btn btn-accent" onclick="runSimulation()">Simular cartera →</button>
+          <button class="btn btn-accent" onclick="runSimulation()">Simular →</button>
         </div>
       </div>
-
       <div class="sim-results" id="sim-results" style="display:none">
-        <div class="section-label">Resultado de la simulación</div>
-        <div class="sim-result-grid">
-          <div class="sim-result-item">
-            <div class="sri-label">Inversión inicial</div>
-            <div class="sri-value" style="color:var(--text)">$100.000</div>
-          </div>
-          <div class="sim-result-item">
-            <div class="sri-label">Valor actual</div>
-            <div class="sri-value up">$318.240</div>
-          </div>
-          <div class="sim-result-item">
-            <div class="sri-label">Rendimiento total</div>
-            <div class="sri-value up">+218.2%</div>
-          </div>
-          <div class="sim-result-item">
-            <div class="sri-label">vs Inflación</div>
-            <div class="sri-value up">+94.1%</div>
-          </div>
-          <div class="sim-result-item">
-            <div class="sri-label">vs Dólar MEP</div>
-            <div class="sri-value up">+198.4%</div>
-          </div>
-        </div>
-        <div class="chart-wrapper" style="height:220px">
-          <canvas id="simChart"></canvas>
-        </div>
+        <div class="section-label">Resultado</div>
+        <div class="sim-result-grid" id="sim-result-grid"></div>
+        <div class="chart-wrapper" style="height:220px"><canvas id="simChart"></canvas></div>
       </div>
     </div>
-
-    <!-- CARTERA DINÁMICA -->
     <div id="sim-dynamic" style="display:none">
       <div class="sim-section">
         <div class="section-label">Registrar operaciones</div>
         <div style="overflow-x:auto">
-          <table class="ops-table" id="ops-table">
-            <thead>
-              <tr>
-                <th>Tipo</th>
-                <th>Activo</th>
-                <th>Cantidad</th>
-                <th>Precio unitario</th>
-                <th>Fecha</th>
-                <th></th>
-              </tr>
-            </thead>
+          <table class="ops-table">
+            <thead><tr><th>Tipo</th><th>Activo</th><th>Cantidad</th><th>Precio</th><th>Fecha</th><th></th></tr></thead>
             <tbody id="ops-body">
-              <tr>
-                <td><select><option>Compra</option><option>Venta</option></select></td>
-                <td><input type="text" value="GGAL" placeholder="Ticker"/></td>
-                <td><input type="number" value="100" placeholder="Cantidad"/></td>
-                <td><input type="number" value="5800" placeholder="Precio"/></td>
-                <td><input type="date" value="2024-03-15"/></td>
-                <td><span class="remove-op" onclick="removeOp(this)">✕</span></td>
-              </tr>
-              <tr>
-                <td><select><option>Compra</option><option>Venta</option></select></td>
-                <td><input type="text" value="AL30" placeholder="Ticker"/></td>
-                <td><input type="number" value="500" placeholder="Cantidad"/></td>
-                <td><input type="number" value="48.5" placeholder="Precio"/></td>
-                <td><input type="date" value="2024-06-01"/></td>
-                <td><span class="remove-op" onclick="removeOp(this)">✕</span></td>
-              </tr>
+              <tr><td><select><option>Compra</option><option>Venta</option></select></td><td><input type="text" value="GGAL"/></td><td><input type="number" value="100"/></td><td><input type="number" value="5800"/></td><td><input type="date" value="2024-03-15"/></td><td><span class="remove-op" onclick="removeOp(this)">✕</span></td></tr>
             </tbody>
           </table>
         </div>
         <div style="display:flex;gap:0.75rem;margin-top:0.75rem">
           <button class="btn btn-outline" style="font-size:0.8rem" onclick="addOp()">+ Agregar operación</button>
-          <button class="btn btn-accent" onclick="runDynamic()">Calcular resultado →</button>
+          <button class="btn btn-accent" onclick="runDynamic()">Calcular →</button>
         </div>
       </div>
-
       <div class="sim-results" id="dyn-results" style="display:none">
-        <div class="section-label">Cartera actual</div>
-        <div class="sim-result-grid">
-          <div class="sim-result-item">
-            <div class="sri-label">Capital invertido</div>
-            <div class="sri-value" style="color:var(--text)">$604.250</div>
-          </div>
-          <div class="sim-result-item">
-            <div class="sri-label">Valuación actual</div>
-            <div class="sri-value up">$1.024.800</div>
-          </div>
-          <div class="sim-result-item">
-            <div class="sri-label">Resultado</div>
-            <div class="sri-value up">+$420.550</div>
-          </div>
-          <div class="sim-result-item">
-            <div class="sri-label">Rendimiento</div>
-            <div class="sri-value up">+69.6%</div>
-          </div>
-        </div>
-        <div style="margin-top:1.25rem">
-          <div class="section-label">Composición actual</div>
-          <div class="peer-item"><div><div class="peer-ticker">GGAL (100)</div><div class="peer-name">Comprado a $5.800</div></div><div class="peer-perf up">+18.0% · Val: $684.200</div></div>
-          <div class="peer-item"><div><div class="peer-ticker">AL30 (500)</div><div class="peer-name">Comprado a $48.50</div></div><div class="peer-perf up">+41.2% · Val: $340.600</div></div>
-        </div>
+        <div class="section-label">Resultado</div>
+        <div class="sim-result-grid" id="dyn-result-grid"></div>
+        <div id="dyn-positions" style="margin-top:1rem"></div>
       </div>
     </div>
   </div>
 
-  <!-- PAGE: HISTORIAL -->
   <div class="page" id="page-historial">
     <div class="page-header">
       <p class="section-label">Tus análisis</p>
@@ -782,59 +459,24 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <p>Revisá y actualizá tus análisis anteriores</p>
     </div>
     <div class="history-list" id="history-list">
-      <div class="history-item" onclick="showPage('analysis')">
-        <div class="hi-left">
-          <div class="hi-ticker">GGAL</div>
-          <div class="hi-meta">
-            <div class="hi-name">Grupo Financiero Galicia</div>
-            <div class="hi-date">Hoy, 14:32 · Análisis básico</div>
-          </div>
-        </div>
-        <div class="hi-right">
-          <div class="hi-score">Score 7.2</div>
-          <div class="hi-alert">+12% desde el análisis</div>
-        </div>
-      </div>
-      <div class="history-item" onclick="showPage('deep')">
-        <div class="hi-left">
-          <div class="hi-ticker">AL30</div>
-          <div class="hi-meta">
-            <div class="hi-name">Bono Soberano Argentina 2030</div>
-            <div class="hi-date">Ayer, 10:15 · Análisis profundo</div>
-          </div>
-        </div>
-        <div class="hi-right">
-          <div class="hi-score">Score 6.8</div>
-        </div>
-      </div>
-      <div class="history-item">
-        <div class="hi-left">
-          <div class="hi-ticker">YPF</div>
-          <div class="hi-meta">
-            <div class="hi-name">YPF S.A.</div>
-            <div class="hi-date">Hace 3 días · Análisis básico</div>
-          </div>
-        </div>
-        <div class="hi-right">
-          <div class="hi-score">Score 8.1</div>
-        </div>
+      <div style="text-align:center;padding:3rem;color:var(--muted)">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem;opacity:0.3">🕐</div>
+        <p>Tus análisis guardados aparecerán acá</p>
       </div>
     </div>
   </div>
+</div>
 
-</div><!-- end main -->
-
-<!-- MODAL UPGRADE -->
 <div class="modal-overlay" id="upgradeModal">
   <div class="modal">
     <div class="modal-title">Actualizá tu plan</div>
-    <div class="modal-sub">Esta función está disponible en los planes Basic y Pro. Elegí el que mejor se adapta a lo que necesitás.</div>
+    <div class="modal-sub">Esta función está disponible en los planes Basic y Pro.</div>
     <div class="plans-grid">
       <div class="plan-card">
         <div class="plan-card-name">Free</div>
         <div class="plan-card-price">$0<span>/mes</span></div>
         <div class="plan-card-features">
-          <div class="pcf">3 análisis básicos por mes</div>
+          <div class="pcf">3 análisis básicos</div>
           <div class="pcf locked">Sin historial</div>
           <div class="pcf locked">Sin simulador</div>
           <div class="pcf locked">Sin PDF</div>
@@ -845,7 +487,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="plan-card-price">$7.99<span>/mes</span></div>
         <div class="plan-card-features">
           <div class="pcf">Análisis ilimitados</div>
-          <div class="pcf">Historial guardado</div>
+          <div class="pcf">Historial</div>
           <div class="pcf locked">Sin simulador</div>
           <div class="pcf locked">Sin PDF</div>
         </div>
@@ -857,8 +499,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="plan-card-features">
           <div class="pcf">Todo lo de Basic</div>
           <div class="pcf">Análisis profundo</div>
-          <div class="pcf">Simulador de cartera</div>
-          <div class="pcf">Exportación PDF</div>
+          <div class="pcf">Simulador</div>
+          <div class="pcf">PDF</div>
         </div>
         <button class="btn btn-accent" style="width:100%;margin-top:1rem;font-size:0.8rem">Elegir Pro ⚡</button>
       </div>
@@ -867,315 +509,503 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// DATA
-const ASSETS = {
-  'GGAL': {name:'Grupo Financiero Galicia · Merval', price:'$6.842', change:'+4.2%', up:true, score:7.2},
-  'YPF': {name:'YPF S.A. · Merval', price:'$1.247', change:'+1.8%', up:true, score:8.1},
-  'PAMP': {name:'Pampa Energía · Merval', price:'$3.120', change:'+2.1%', up:true, score:7.8},
-  'AL30': {name:'Bono Soberano Argentina 2030', price:'$52.40', change:'+3.4%', up:true, score:6.8},
-  'GD30': {name:'Bono Global Argentina 2030', price:'$63.80', change:'-1.2%', up:false, score:6.5},
-  'MEP': {name:'Dólar MEP · Bursátil', price:'$1.247', change:'+0.3%', up:true, score:5.2},
-  'MELI': {name:'MercadoLibre · CEDEAR', price:'$28.450', change:'+0.9%', up:true, score:7.5},
-};
+// ─── CONFIGURACIÓN ───────────────────────────────────────────────
+const API = "https://inverso.onrender.com";
 
 const SUGGESTIONS = [
-  {ticker:'GGAL', name:'Grupo Financiero Galicia', change:'+4.2%', up:true},
-  {ticker:'YPF', name:'YPF S.A.', change:'+1.8%', up:true},
-  {ticker:'AL30', name:'Bono Soberano 2030', change:'+3.4%', up:true},
-  {ticker:'GD30', name:'Bono Global 2030', change:'-1.2%', up:false},
-  {ticker:'PAMP', name:'Pampa Energía', change:'+2.1%', up:true},
-  {ticker:'MEP', name:'Dólar MEP', change:'+0.3%', up:true},
-  {ticker:'MELI', name:'MercadoLibre CEDEAR', change:'+0.9%', up:true},
+  {ticker:'GGAL', name:'Grupo Financiero Galicia'},
+  {ticker:'YPF',  name:'YPF S.A.'},
+  {ticker:'AL30', name:'Bono Soberano 2030'},
+  {ticker:'GD30', name:'Bono Global 2030'},
+  {ticker:'PAMP', name:'Pampa Energía'},
+  {ticker:'MEP',  name:'Dólar MEP'},
+  {ticker:'MELI', name:'MercadoLibre CEDEAR'},
+  {ticker:'BMA',  name:'Banco Macro'},
+  {ticker:'VIST', name:'Vista Energy'},
 ];
 
-let currentAsset = 'GGAL';
-let priceChartInstance = null;
-let simChartInstance = null;
+let currentTicker  = '';
+let lastBasicData  = null;
+let priceChartInst = null;
+let simChartInst   = null;
+let analysisHistory = JSON.parse(localStorage.getItem('inverso_history') || '[]');
 
-// NAVIGATION
+// ─── NAVEGACIÓN ─────────────────────────────────────────────────
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  const navEl = document.getElementById('nav-' + page);
-  if(navEl) navEl.classList.add('active');
-  const titles = {dashboard:'Dashboard', analysis:'Análisis', deep:'Análisis profundo', simulador:'Simulador', historial:'Historial', loading:'Analizando...'};
+  const nav = document.getElementById('nav-' + page);
+  if (nav) nav.classList.add('active');
+  const titles = {dashboard:'Dashboard',analysis:'Análisis básico',deep:'Análisis profundo',simulador:'Simulador',historial:'Historial',loading:'Analizando...'};
   document.getElementById('topbar-title').textContent = titles[page] || 'Inverso';
-  if(page === 'deep') initPriceChart();
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
-// SEARCH
+// ─── BÚSQUEDA ───────────────────────────────────────────────────
 function handleSearch(val) {
   const box = document.getElementById('suggestions');
-  if(!val || val.length < 1) { box.classList.remove('open'); return; }
+  if (!val) { box.classList.remove('open'); return; }
   const filtered = SUGGESTIONS.filter(a =>
     a.ticker.toLowerCase().includes(val.toLowerCase()) ||
     a.name.toLowerCase().includes(val.toLowerCase())
   );
-  if(!filtered.length) { box.classList.remove('open'); return; }
+  if (!filtered.length) { box.classList.remove('open'); return; }
   box.innerHTML = filtered.map(a => `
     <div class="suggestion-item" onclick="selectAsset('${a.ticker}')">
-      <div class="sug-left">
-        <span class="sug-ticker">${a.ticker}</span>
-        <span class="sug-name">${a.name}</span>
-      </div>
-      <span class="sug-right ${a.up?'':'neg'}">${a.up?'↑':'↓'} ${a.change}</span>
-    </div>
-  `).join('');
+      <div><div class="sug-ticker">${a.ticker}</div><div class="sug-name">${a.name}</div></div>
+    </div>`).join('');
   box.classList.add('open');
 }
 
 function selectAsset(ticker) {
   document.getElementById('searchInput').value = ticker;
   document.getElementById('suggestions').classList.remove('open');
-  currentAsset = ticker;
+  currentTicker = ticker;
   runAnalysis();
 }
 
-const API_BASE_URL = "https://inverso.onrender.com";
-
+// ─── ANÁLISIS BÁSICO ── POST correcto ───────────────────────────
 async function runAnalysis() {
-  const ticker = document.getElementById('searchInput').value.trim().toUpperCase();
-  if(!ticker) return;
+  const ticker = (document.getElementById('searchInput').value || currentTicker).trim().toUpperCase();
+  if (!ticker) return;
+  currentTicker = ticker;
 
   showPage('loading');
-  
+  startLoadingAnim();
+
+  // Aviso de "despertando" si tarda más de 6 segundos
+  const wakingTimer = setTimeout(() => {
+    document.getElementById('waking-msg').classList.add('visible');
+  }, 6000);
+
   try {
-    // Llamada real a tu servidor de Python
-    const response = await fetch(`${API_BASE_URL}/analyze/${ticker}`);
-    
-    if (!response.ok) throw new Error('Error en el servidor');
-    
-    const data = await response.json();
-    
-    // Aquí le pasamos los datos que trajo Python a la pantalla
-    populateAnalysis(data); 
+    const res = await fetchWithRetry(`${API}/analyze/basic`, {
+      method:  'POST',
+      headers: {'Content-Type': 'application/json'},
+      body:    JSON.stringify({ ticker, plan: 'free' })
+    });
+
+    clearTimeout(wakingTimer);
+    document.getElementById('waking-msg').classList.remove('visible');
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || `Error ${res.status}`);
+    }
+
+    lastBasicData = await res.json();
+    populateBasic(lastBasicData);
     showPage('analysis');
-  } catch (error) {
-    console.error("Error:", error);
+
+  } catch (err) {
+    clearTimeout(wakingTimer);
+    document.getElementById('waking-msg').classList.remove('visible');
+    console.error(err);
     showPage('dashboard');
-    showToast('No se pudo conectar con el motor de IA', 'error');
+    showToast('Error: ' + err.message, 'error');
   }
 }
 
-function startLoadingSequence() {
+// ─── ANÁLISIS PROFUNDO ── POST correcto ─────────────────────────
+async function runDeepAnalysis() {
+  if (!currentTicker) return;
+
+  showPage('loading');
+  startLoadingAnim();
+
+  const wakingTimer = setTimeout(() => {
+    document.getElementById('waking-msg').classList.add('visible');
+  }, 6000);
+
+  try {
+    const res = await fetchWithRetry(`${API}/analyze/deep`, {
+      method:  'POST',
+      headers: {'Content-Type': 'application/json'},
+      body:    JSON.stringify({ ticker: currentTicker, plan: 'pro' })
+    });
+
+    clearTimeout(wakingTimer);
+    document.getElementById('waking-msg').classList.remove('visible');
+
+    if (!res.ok) throw new Error(`Error ${res.status}`);
+
+    const data = await res.json();
+    populateDeep(data);
+    showPage('deep');
+
+  } catch (err) {
+    clearTimeout(wakingTimer);
+    document.getElementById('waking-msg').classList.remove('visible');
+    showPage('analysis');
+    showToast('Error al cargar análisis profundo: ' + err.message, 'error');
+  }
+}
+
+// ─── FETCH CON REINTENTOS (maneja "waking up" de Render) ────────
+async function fetchWithRetry(url, options, retries = 3, timeout = 90000) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const ctrl  = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), timeout);
+      const res   = await fetch(url, { ...options, signal: ctrl.signal });
+      clearTimeout(timer);
+      return res;
+    } catch (err) {
+      if (i === retries - 1) throw err;
+      await new Promise(r => setTimeout(r, 3000));
+    }
+  }
+}
+
+// ─── ANIMACIÓN DE CARGA ─────────────────────────────────────────
+function startLoadingAnim() {
   const steps = ['ls1','ls2','ls3','ls4','ls5'];
-  steps.forEach(s => { document.getElementById(s).classList.remove('visible','done'); });
+  steps.forEach(s => document.getElementById(s).classList.remove('visible','done'));
   let i = 0;
-  const interval = setInterval(() => {
-    if(i < steps.length) {
-      if(i > 0) document.getElementById(steps[i-1]).classList.add('done');
+  const iv = setInterval(() => {
+    if (i < steps.length) {
+      if (i > 0) document.getElementById(steps[i-1]).classList.add('done');
       document.getElementById(steps[i]).classList.add('visible');
       i++;
-    } else {
-      clearInterval(interval);
-      setTimeout(() => {
-        populateAnalysis(currentAsset);
-        showPage('analysis');
-      }, 400);
-    }
-  }, 600);
+    } else { clearInterval(iv); }
+  }, 900);
 }
 
-function populateAnalysis(data) {
-  // 1. Nombre y Ticker real
-  document.getElementById('an-ticker').textContent = data.ticker || 'N/A';
-  document.getElementById('an-ticker-col').textContent = data.ticker || 'N/A';
-  document.getElementById('an-name').textContent = data.company_name || 'Activo analizado';
-  
-  // 2. Precio y Variación del mercado (yfinance)
-  document.getElementById('an-price').textContent = `$${data.current_price.toLocaleString()}`;
-  const changeText = (data.change_percent >= 0 ? '↑ +' : '↓ ') + Math.abs(data.change_percent).toFixed(2) + '% hoy';
-  document.getElementById('an-change').textContent = changeText;
-  document.getElementById('an-change').className = 'ah-change ' + (data.change_percent >= 0 ? 'up' : 'down');
+// ─── POBLAR ANÁLISIS BÁSICO ─────────────────────────────────────
+function populateBasic(data) {
+  // Header
+  document.getElementById('an-ticker').textContent     = data.ticker || '—';
+  document.getElementById('an-ticker-col').textContent = data.ticker || '—';
+  document.getElementById('an-name').textContent       = data.name   || '—';
 
-  // 3. Score de Oportunidad (IA)
-  const score = data.score || 0;
-  document.getElementById('an-score').textContent = score;
-  const pct = score / 10;
-  const circ = 326.7;
-  document.getElementById('scoreCircle').style.strokeDashoffset = circ * (1 - pct);
-  
-  // 4. Resumen y Síntesis (OpenAI)
-  document.getElementById('an-summary').textContent = data.summary || 'Sin análisis disponible.';
+  const price  = data.price ?? data.current_price ?? 0;
+  const change = data.change_pct ?? data.change_percent ?? 0;
+  document.getElementById('an-price').textContent = '$' + Number(price).toLocaleString('es-AR', {maximumFractionDigits:2});
+  const chEl = document.getElementById('an-change');
+  chEl.textContent = (change >= 0 ? '↑ +' : '↓ ') + Math.abs(change).toFixed(2) + '% hoy';
+  chEl.className   = 'ah-change ' + (change >= 0 ? 'up' : 'down');
+
+  // Score
+  const score = parseFloat(data.score) || 0;
+  document.getElementById('an-score').textContent      = score.toFixed(1);
+  document.getElementById('an-score-desc').textContent = data.score_description || '';
+  document.getElementById('scoreCircle').style.strokeDashoffset = 326.7 * (1 - score / 10);
+
+  // Factores
+  const fl = document.getElementById('factors-list');
+  fl.innerHTML = (data.factors || []).map(f => {
+    const dot = f.type === 'positive' ? 'pos' : f.type === 'negative' ? 'neg' : 'neu';
+    return `<div class="factor-item">
+      <div class="factor-dot ${dot}"></div>
+      <div>
+        <div class="factor-name">${f.title}</div>
+        <div class="factor-desc">${f.description}</div>
+      </div>
+    </div>`;
+  }).join('') || '<p style="color:var(--muted);font-size:0.85rem">Sin factores disponibles</p>';
+
+  // Tabla MEP
+  const mep = data.mep_comparison || {};
+  document.getElementById('mep-tbody').innerHTML = [
+    {label:'30 días',  a: mep.days_30  ?? 0, m: mep.mep_30  ?? 0},
+    {label:'90 días',  a: mep.days_90  ?? 0, m: mep.mep_90  ?? 0},
+    {label:'365 días', a: mep.days_365 ?? 0, m: mep.mep_365 ?? 0},
+  ].map(p => {
+    const diff = (p.a - p.m).toFixed(1);
+    return `<tr>
+      <td>${p.label}</td>
+      <td class="${p.a >= 0 ? 'pos-val':'neg-val'}">${p.a >= 0 ? '+':''}${p.a}%</td>
+      <td>${p.m >= 0 ? '+':''}${p.m}%</td>
+      <td class="${parseFloat(diff) >= 0 ? 'pos-val':'neg-val'}">${parseFloat(diff) >= 0 ? '+':''}${diff}%</td>
+    </tr>`;
+  }).join('');
+
+  // Resumen
+  document.getElementById('an-summary').textContent = data.summary || '—';
 }
 
-// DEEP ANALYSIS
-function showDeepAnalysis() {
-  showPage('deep');
+// ─── POBLAR ANÁLISIS PROFUNDO ────────────────────────────────────
+function populateDeep(data) {
+  document.getElementById('deep-ticker').textContent = data.ticker || '—';
+  document.getElementById('deep-name').textContent   = data.name   || '—';
+
+  const price  = data.price ?? data.current_price ?? 0;
+  const change = data.change_pct ?? data.change_percent ?? 0;
+  document.getElementById('deep-price').textContent = '$' + Number(price).toLocaleString('es-AR', {maximumFractionDigits:2});
+  const dch = document.getElementById('deep-change');
+  dch.textContent = (change >= 0 ? '↑ +' : '↓ ') + Math.abs(change).toFixed(2) + '% hoy';
+  dch.className   = 'ah-change ' + (change >= 0 ? 'up' : 'down');
+
+  // Gráfico histórico
+  const history = data.history || data.price_history || [];
+  if (history.length > 0) {
+    renderPriceChart(
+      history.map(h => (h.date || '').slice(5)),
+      history.map(h => h.price ?? h.close ?? 0)
+    );
+  }
+
+  // Proyecciones
+  const proj = data.projections || {};
+  document.getElementById('projections-grid').innerHTML =
+    [{key:'months_3',label:'3 meses'},{key:'months_6',label:'6 meses'},{key:'months_12',label:'12 meses'}]
+    .map(p => {
+      const s = proj[p.key] || {};
+      return `<div class="proj-card">
+        <div class="proj-horizon">${p.label}</div>
+        <div class="proj-scenario"><span class="proj-scenario-label">Optimista</span><span class="proj-val-up">${s.optimistic||'—'}</span></div>
+        <div class="proj-scenario"><span class="proj-scenario-label">Neutro</span><span class="proj-val-neu">${s.neutral||'—'}</span></div>
+        <div class="proj-scenario"><span class="proj-scenario-label">Pesimista</span><span class="proj-val-down">${s.pessimistic||'—'}</span></div>
+      </div>`;
+    }).join('');
+
+  // Pares
+  document.getElementById('peers-list').innerHTML =
+    (data.peers || []).map(p => `
+      <div class="peer-item">
+        <div><div class="peer-ticker">${p.ticker}</div><div class="peer-name">${p.name}</div></div>
+        <div class="peer-perf ${p.performance_90d >= 0 ? 'up':'down'}">${p.performance_90d >= 0 ? '+':''}${p.performance_90d}%</div>
+      </div>`).join('') || '<p style="color:var(--muted);font-size:0.85rem;padding:0.5rem 0">Sin datos de pares</p>';
+
+  // Noticias
+  document.getElementById('news-list').innerHTML =
+    (data.news || []).map(n => `
+      <div class="news-item">
+        <div class="news-source">${n.source} · ${n.date}</div>
+        <div class="news-title">${n.title}</div>
+        <div class="news-summary">${n.summary}</div>
+      </div>`).join('') || '<p style="color:var(--muted);font-size:0.85rem;padding:0.5rem 0">Sin noticias disponibles</p>';
+
+  // Síntesis técnica
+  document.getElementById('deep-technical').textContent = data.technical_summary || data.summary || '—';
 }
 
-function initPriceChart() {
+// ─── GRÁFICO DE PRECIO ──────────────────────────────────────────
+function renderPriceChart(labels, prices) {
   const ctx = document.getElementById('priceChart');
-  if(!ctx) return;
-  if(priceChartInstance) { priceChartInstance.destroy(); }
-  const labels = ['Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic','Ene','Feb'];
-  const data = [3200,3580,3920,4200,3800,4600,5100,5400,5800,6100,6400,6620,6842];
-  priceChartInstance = new Chart(ctx, {
-    type:'line',
-    data:{
+  if (!ctx) return;
+  if (priceChartInst) priceChartInst.destroy();
+  priceChartInst = new Chart(ctx, {
+    type: 'line',
+    data: {
       labels,
-      datasets:[{
-        label:'Precio',
-        data,
-        borderColor:'#c9a96e',
-        backgroundColor:'rgba(201,169,110,0.08)',
-        borderWidth:2,
-        pointRadius:0,
-        pointHoverRadius:4,
-        fill:true,
-        tension:0.4
+      datasets: [{
+        data: prices,
+        borderColor: '#c9a96e',
+        backgroundColor: 'rgba(201,169,110,0.08)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        fill: true,
+        tension: 0.4
       }]
     },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,backgroundColor:'#13171f',borderColor:'#1e2530',borderWidth:1,titleColor:'#e8e4dc',bodyColor:'#7a8394'}},
-      scales:{
-        x:{grid:{color:'rgba(30,37,48,0.5)'},ticks:{color:'#7a8394',font:{size:11}}},
-        y:{grid:{color:'rgba(30,37,48,0.5)'},ticks:{color:'#7a8394',font:{size:11},callback:v=>'$'+v.toLocaleString()}}
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {legend:{display:false}, tooltip:{mode:'index',intersect:false,backgroundColor:'#13171f',borderColor:'#1e2530',borderWidth:1,titleColor:'#e8e4dc',bodyColor:'#7a8394'}},
+      scales: {
+        x: {grid:{color:'rgba(30,37,48,0.5)'}, ticks:{color:'#7a8394',font:{size:10},maxTicksLimit:10}},
+        y: {grid:{color:'rgba(30,37,48,0.5)'}, ticks:{color:'#7a8394',font:{size:10},callback:v=>'$'+Number(v).toLocaleString()}}
       }
     }
   });
 }
 
-// SIMULATOR
+// ─── MARKET OVERVIEW ────────────────────────────────────────────
+async function loadMarketOverview() {
+  try {
+    const res  = await fetch(`${API}/assets/market-overview`);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data.mep?.price) {
+      document.getElementById('mk-mep').textContent = '$' + Number(data.mep.price).toLocaleString('es-AR',{maximumFractionDigits:0});
+      const ch = data.mep.change_pct || 0;
+      const el = document.getElementById('mk-mep-ch');
+      el.textContent = (ch >= 0 ? '↑ +' : '↓ ') + Math.abs(ch).toFixed(1) + '% hoy';
+      el.className   = 'mc-change ' + (ch >= 0 ? 'up' : 'down');
+    }
+    if (data.riesgo_pais) document.getElementById('mk-riesgo').textContent  = data.riesgo_pais;
+    if (data.inflacion)   document.getElementById('mk-inflacion').textContent = data.inflacion + '%';
+    if (data.usd_oficial) document.getElementById('mk-oficial').textContent  = '$' + Number(data.usd_oficial).toLocaleString('es-AR',{maximumFractionDigits:0});
+  } catch(e) { /* silencioso */ }
+}
+
+// ─── SIMULADOR ──────────────────────────────────────────────────
 function switchSimTab(tab, el) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  document.getElementById('sim-fixed').style.display = tab === 'fixed' ? 'block' : 'none';
+  document.getElementById('sim-fixed').style.display   = tab === 'fixed'   ? 'block' : 'none';
   document.getElementById('sim-dynamic').style.display = tab === 'dynamic' ? 'block' : 'none';
 }
 
-function updateAlloc(slider) {
-  slider.nextElementSibling.textContent = slider.value + '%';
-}
-
-function removeAlloc(btn) {
-  btn.closest('.allocation-item').remove();
-}
+function updateAlloc(slider) { slider.nextElementSibling.textContent = slider.value + '%'; }
+function removeAlloc(btn)    { btn.closest('.allocation-item').remove(); }
 
 function addAsset() {
-  const assets = ['PAMP','BMA','VIST','SUPV','YPF'];
-  const ticker = assets[Math.floor(Math.random()*assets.length)];
   const list = document.getElementById('allocation-list');
   const item = document.createElement('div');
   item.className = 'allocation-item';
-  item.innerHTML = `
-    <span class="alloc-ticker">${ticker}</span>
-    <input type="range" class="alloc-slider" min="0" max="100" value="20" oninput="updateAlloc(this)"/>
-    <span class="alloc-pct">20%</span>
-    <span class="alloc-remove" onclick="removeAlloc(this)">✕</span>
-  `;
+  item.innerHTML = `<span class="alloc-ticker">YPF</span><input type="range" class="alloc-slider" min="0" max="100" value="20" oninput="updateAlloc(this)"/><span class="alloc-pct">20%</span><span class="alloc-remove" onclick="removeAlloc(this)">✕</span>`;
   list.appendChild(item);
 }
 
-function runSimulation() {
+async function runSimulation() {
+  const amount    = parseFloat(document.getElementById('sim-amount').value) || 100000;
+  const currency  = document.getElementById('sim-currency').value;
+  const startDate = document.getElementById('sim-date').value;
+  const allocations = Array.from(document.querySelectorAll('#allocation-list .allocation-item')).map(el => ({
+    ticker:     el.querySelector('.alloc-ticker').textContent,
+    percentage: parseFloat(el.querySelector('.alloc-slider').value)
+  }));
+
+  showToast('Calculando simulación...', '');
+  try {
+    const res = await fetch(`${API}/portfolio/fixed`, {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({amount, currency, start_date: startDate, allocations})
+    });
+    if (!res.ok) throw new Error('Error en simulación');
+    const data = await res.json();
+    displaySimResults(data);
+  } catch(e) { showToast('Error: ' + e.message, 'error'); }
+}
+
+function displaySimResults(data) {
   const results = document.getElementById('sim-results');
   results.style.display = 'block';
+  const ret = data.total_return_pct || 0;
+  document.getElementById('sim-result-grid').innerHTML = `
+    <div class="sim-result-item"><div class="sri-label">Inversión inicial</div><div class="sri-value" style="color:var(--text)">$${Number(data.initial_amount).toLocaleString()}</div></div>
+    <div class="sim-result-item"><div class="sri-label">Valor actual</div><div class="sri-value ${ret>=0?'up':'down'}">$${Number(data.current_value).toLocaleString()}</div></div>
+    <div class="sim-result-item"><div class="sri-label">Rendimiento</div><div class="sri-value ${ret>=0?'up':'down'}">${ret>=0?'+':''}${ret}%</div></div>
+    <div class="sim-result-item"><div class="sri-label">vs Inflación</div><div class="sri-value ${data.vs_inflation_pct>=0?'up':'down'}">${data.vs_inflation_pct>=0?'+':''}${data.vs_inflation_pct}%</div></div>
+    <div class="sim-result-item"><div class="sri-label">vs MEP</div><div class="sri-value ${data.vs_mep_pct>=0?'up':'down'}">${data.vs_mep_pct>=0?'+':''}${data.vs_mep_pct}%</div></div>`;
   results.scrollIntoView({behavior:'smooth',block:'nearest'});
   setTimeout(() => {
     const ctx = document.getElementById('simChart');
-    if(!ctx) return;
-    if(simChartInstance) simChartInstance.destroy();
-    const months = ['Ene 24','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic','Ene 25','Feb 25'];
-    const cartera = [100000,112000,128000,119000,145000,168000,192000,215000,248000,274000,296000,310000,318000,318240];
-    const inflacion = [100000,109800,121200,134700,149600,163500,177200,188400,198000,207000,214000,220000,225000,228000];
-    const mep = [100000,101200,102400,103100,104800,106200,108100,109500,111000,113200,115800,117400,119000,120300];
-    simChartInstance = new Chart(ctx, {
+    if (!ctx) return;
+    if (simChartInst) simChartInst.destroy();
+    const hist = data.history || [];
+    simChartInst = new Chart(ctx, {
       type:'line',
-      data:{
-        labels:months,
-        datasets:[
-          {label:'Mi cartera',data:cartera,borderColor:'#c9a96e',backgroundColor:'rgba(201,169,110,0.06)',borderWidth:2,pointRadius:0,fill:true,tension:0.4},
-          {label:'Inflación',data:inflacion,borderColor:'#e05a5a',backgroundColor:'transparent',borderWidth:1.5,borderDash:[4,4],pointRadius:0,tension:0.4},
-          {label:'Dólar MEP',data:mep,borderColor:'#4caf82',backgroundColor:'transparent',borderWidth:1.5,borderDash:[4,4],pointRadius:0,tension:0.4},
-        ]
-      },
-      options:{
-        responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:true,labels:{color:'#7a8394',font:{size:11},boxWidth:12}},tooltip:{mode:'index',intersect:false,backgroundColor:'#13171f',borderColor:'#1e2530',borderWidth:1,titleColor:'#e8e4dc',bodyColor:'#7a8394',callbacks:{label:ctx=>' '+ctx.dataset.label+': $'+ctx.raw.toLocaleString()}}},
-        scales:{
-          x:{grid:{color:'rgba(30,37,48,0.5)'},ticks:{color:'#7a8394',font:{size:10}}},
-          y:{grid:{color:'rgba(30,37,48,0.5)'},ticks:{color:'#7a8394',font:{size:10},callback:v=>'$'+Math.round(v/1000)+'k'}}
-        }
-      }
+      data:{labels:hist.map(h=>(h.date||'').slice(5)),datasets:[{label:'Cartera',data:hist.map(h=>h.value),borderColor:'#c9a96e',backgroundColor:'rgba(201,169,110,0.06)',borderWidth:2,pointRadius:0,fill:true,tension:0.4}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(30,37,48,0.5)'},ticks:{color:'#7a8394',font:{size:10},maxTicksLimit:10}},y:{grid:{color:'rgba(30,37,48,0.5)'},ticks:{color:'#7a8394',font:{size:10},callback:v=>'$'+Math.round(v/1000)+'k'}}}}
     });
   }, 100);
 }
 
-function addOp() {
-  const tbody = document.getElementById('ops-body');
-  const row = document.createElement('tr');
-  row.innerHTML = `
-    <td><select><option>Compra</option><option>Venta</option></select></td>
-    <td><input type="text" placeholder="Ticker"/></td>
-    <td><input type="number" placeholder="Cantidad"/></td>
-    <td><input type="number" placeholder="Precio"/></td>
-    <td><input type="date"/></td>
-    <td><span class="remove-op" onclick="removeOp(this)">✕</span></td>
-  `;
-  tbody.appendChild(row);
+async function runDynamic() {
+  const rows = document.querySelectorAll('#ops-body tr');
+  const operations = Array.from(rows).map(row => {
+    const cells = row.querySelectorAll('td');
+    return {
+      type:     cells[0].querySelector('select').value === 'Compra' ? 'buy' : 'sell',
+      ticker:   cells[1].querySelector('input').value.toUpperCase(),
+      quantity: parseFloat(cells[2].querySelector('input').value) || 0,
+      price:    parseFloat(cells[3].querySelector('input').value) || 0,
+      date:     cells[4].querySelector('input').value,
+    };
+  }).filter(op => op.ticker && op.quantity > 0 && op.price > 0 && op.date);
+
+  try {
+    const res = await fetch(`${API}/portfolio/dynamic`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({operations, currency:'ars'})
+    });
+    if (!res.ok) throw new Error('Error');
+    const data = await res.json();
+    const results = document.getElementById('dyn-results');
+    results.style.display = 'block';
+    const ret = data.return_pct || 0;
+    document.getElementById('dyn-result-grid').innerHTML = `
+      <div class="sim-result-item"><div class="sri-label">Capital invertido</div><div class="sri-value" style="color:var(--text)">$${Number(data.invested_capital).toLocaleString()}</div></div>
+      <div class="sim-result-item"><div class="sri-label">Valuación actual</div><div class="sri-value ${ret>=0?'up':'down'}">$${Number(data.current_value).toLocaleString()}</div></div>
+      <div class="sim-result-item"><div class="sri-label">Resultado</div><div class="sri-value ${ret>=0?'up':'down'}">${ret>=0?'+':''}$${Number(data.total_result).toLocaleString()}</div></div>
+      <div class="sim-result-item"><div class="sri-label">Rendimiento</div><div class="sri-value ${ret>=0?'up':'down'}">${ret>=0?'+':''}${ret}%</div></div>`;
+    document.getElementById('dyn-positions').innerHTML = '<div class="section-label">Posiciones actuales</div>' +
+      (data.positions||[]).map(p=>`<div class="peer-item"><div><div class="peer-ticker">${p.ticker} (${p.quantity})</div><div class="peer-name">Precio promedio: $${p.avg_price}</div></div><div class="peer-perf ${p.gain_pct>=0?'up':'down'}">${p.gain_pct>=0?'+':''}${p.gain_pct}% · $${Number(p.value).toLocaleString()}</div></div>`).join('');
+    results.scrollIntoView({behavior:'smooth',block:'nearest'});
+  } catch(e) { showToast('Error: ' + e.message, 'error'); }
 }
 
-function removeOp(btn) { btn.closest('tr').remove(); }
-
-function runDynamic() {
-  const results = document.getElementById('dyn-results');
-  results.style.display = 'block';
-  results.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
-// HISTORY
+// ─── HISTORIAL ──────────────────────────────────────────────────
 function saveToHistory() {
-  showToast('Análisis guardado en historial ✓', 'success');
+  if (!lastBasicData) return;
+  const entry = {
+    ticker: lastBasicData.ticker,
+    name:   lastBasicData.name,
+    score:  lastBasicData.score,
+    date:   new Date().toLocaleString('es-AR'),
+    data:   lastBasicData
+  };
+  analysisHistory.unshift(entry);
+  if (analysisHistory.length > 20) analysisHistory.pop();
+  localStorage.setItem('inverso_history', JSON.stringify(analysisHistory));
+  renderHistory();
+  showToast('Guardado en historial ✓', 'success');
 }
 
-// MODAL
-function showUpgradeModal() {
-  document.getElementById('upgradeModal').classList.add('open');
+function renderHistory() {
+  const list = document.getElementById('history-list');
+  if (!analysisHistory.length) {
+    list.innerHTML = '<div style="text-align:center;padding:3rem;color:var(--muted)"><div style="font-size:2.5rem;margin-bottom:0.75rem;opacity:0.3">🕐</div><p>Tus análisis guardados aparecerán acá</p></div>';
+    return;
+  }
+  list.innerHTML = analysisHistory.map((h, i) => `
+    <div class="history-item" onclick="loadFromHistory(${i})">
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="hi-ticker">${h.ticker}</div>
+        <div><div class="hi-name">${h.name}</div><div class="hi-date">${h.date}</div></div>
+      </div>
+      <div class="hi-score">Score ${Number(h.score).toFixed(1)}</div>
+    </div>`).join('');
 }
-function closeModal() {
-  document.getElementById('upgradeModal').classList.remove('open');
+
+function loadFromHistory(i) {
+  lastBasicData = analysisHistory[i].data;
+  currentTicker = analysisHistory[i].ticker;
+  populateBasic(lastBasicData);
+  showPage('analysis');
 }
-document.getElementById('upgradeModal').addEventListener('click', function(e) {
-  if(e.target === this) closeModal();
-});
 
-// PDF
-function exportPDF() { showToast('Generando PDF... (disponible en plan Pro)', ''); }
+// ─── UTILS ──────────────────────────────────────────────────────
+function showUpgradeModal() { document.getElementById('upgradeModal').classList.add('open'); }
+function closeModal()       { document.getElementById('upgradeModal').classList.remove('open'); }
+document.getElementById('upgradeModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-// TOAST
+function exportPDF() { showToast('PDF disponible en plan Pro', ''); }
+
 function showToast(msg, type) {
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className = 'toast show ' + (type||'');
-  setTimeout(() => t.className = 'toast', 3000);
+  t.className   = 'toast show ' + (type || '');
+  setTimeout(() => t.className = 'toast', 3500);
 }
 
-// SIDEBAR MOBILE
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
+function addOp() {
+  const row = document.createElement('tr');
+  row.innerHTML = `<td><select><option>Compra</option><option>Venta</option></select></td><td><input type="text" placeholder="Ticker"/></td><td><input type="number" placeholder="Cantidad"/></td><td><input type="number" placeholder="Precio"/></td><td><input type="date"/></td><td><span class="remove-op" onclick="removeOp(this)">✕</span></td>`;
+  document.getElementById('ops-body').appendChild(row);
 }
+function removeOp(btn) { btn.closest('tr').remove(); }
 
-// RESPONSIVE
 function checkMobile() {
-  const isMobile = window.innerWidth <= 768;
-  document.getElementById('menu-btn').style.display = isMobile ? 'block' : 'none';
+  document.getElementById('menu-btn').style.display = window.innerWidth <= 768 ? 'block' : 'none';
 }
+
+// ─── INIT ───────────────────────────────────────────────────────
 window.addEventListener('resize', checkMobile);
 checkMobile();
-
-// CLOSE SUGGESTIONS ON CLICK OUTSIDE
+renderHistory();
+loadMarketOverview();
 document.addEventListener('click', e => {
-  if(!e.target.closest('.search-box')) {
-    document.getElementById('suggestions').classList.remove('open');
-  }
+  if (!e.target.closest('.search-box')) document.getElementById('suggestions').classList.remove('open');
 });
-</script> : const API_BASE_URL = "https://inverso.onrender.com";
+</script>
 </body>
 </html>
