@@ -822,7 +822,7 @@ async function loadMarketOverview() {
     if (!res.ok) return;
     const data = await res.json();
     if (data.mep && data.mep.price) {
-      document.getElementById('mk-mep').textContent = '$' + Number(data.mep.price).toLocaleString('es-AR',{maximumFractionDigits:0});
+      document.getElementById('mk-mep').textContent = '$' + Math.round(data.mep.price).toLocaleString('es-AR');
       const ch = data.mep.change_pct || 0;
       const el = document.getElementById('mk-mep-ch');
       el.textContent = (ch >= 0 ? '↑ +' : '↓ ') + Math.abs(ch).toFixed(1) + '% hoy';
