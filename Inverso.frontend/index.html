@@ -821,7 +821,7 @@ async function loadMarketOverview() {
     const res  = await fetch(`${API}/assets/market-overview`);
     if (!res.ok) return;
     const data = await res.json();
-    if (data.mep?.price) {
+    if (data.mep && data.mep.price) {
       document.getElementById('mk-mep').textContent = '$' + Number(data.mep.price).toLocaleString('es-AR',{maximumFractionDigits:0});
       const ch = data.mep.change_pct || 0;
       const el = document.getElementById('mk-mep-ch');
