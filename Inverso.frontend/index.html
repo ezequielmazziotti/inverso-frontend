@@ -821,6 +821,7 @@ async function loadMarketOverview() {
     const res  = await fetch(`${API}/assets/market-overview`);
     if (!res.ok) return;
     const data = await res.json();
+    console.log('Market overview:', data);
     if (data.mep && data.mep.price) {
       document.getElementById('mk-mep').textContent = '$' + Math.round(data.mep.price).toLocaleString('es-AR');
       const ch = data.mep.change_pct || 0;
@@ -830,8 +831,8 @@ async function loadMarketOverview() {
     }
     if (data.riesgo_pais) document.getElementById('mk-riesgo').textContent  = data.riesgo_pais;
     if (data.inflacion)   document.getElementById('mk-inflacion').textContent = data.inflacion + '%';
-    if (data.usd_oficial) document.getElementById('mk-oficial').textContent  = '$' + Number(data.usd_oficial).toLocaleString('es-AR',{maximumFractionDigits:0});
-  } catch(e) { /* silencioso */ }
+    if (data.usd_oficial) document.getElementById('mk-oficial').textContent  = '$' + Math.round(data.usd_oficial).toLocaleString('es-AR');
+  } catch(e) { console.error('Market overview error:', e); }
 }
 
 // ─── SIMULADOR ──────────────────────────────────────────────────
